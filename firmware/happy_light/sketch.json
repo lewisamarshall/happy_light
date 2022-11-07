@@ -2,6 +2,6 @@
   "cpu": {
     "fqbn": "arduino:samd:nano_33_iot",
     "name": "Arduino NANO 33 IoT",
-    "port": "serial:///dev/cu.usbmodem141101"
+    "port": "serial:///dev/cu.usbmodem143101"
   }
 }
