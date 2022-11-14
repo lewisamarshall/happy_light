@@ -21,12 +21,11 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org", -3600*8);
 
 
 // LED Port Setup
-const int LED_W = 2;
-const int LED_R = 5; 
-const int LED_G = 6;
-const int LED_B = 3;
+const int LED_R = 2; 
+const int LED_G = 3;
+const int LED_B = 5;
+const int LED_W = 6;
 
-const int loop_time=20;
 
 // Time Calculations
 long TimeOfDay = 0; 
