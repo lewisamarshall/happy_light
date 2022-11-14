@@ -1,0 +1,100 @@
+
+(rules PCB happy_light
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 476)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 750.2 (type default_"LED_Current"))
+    (clear 50.0 (type smd_smd))
+    (clear 750.2 (type smd_"LED_Current"))
+    (clear 750.2 (type "kicad_default"_"LED_Current"))
+    (clear 750.2 (type "LED_Current"_"LED_Current"))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-LED_Current" "Via[0-1]_800:400_um" "LED_Current"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    "LED_Current" "Via[0-1]_800:400_um-LED_Current"
+  )
+  (class default
+    GND "unconnected-(XA1-PadRST2)" "unconnected-(XA1-Pad5V)" "unconnected-(XA1-PadA7)" "unconnected-(XA1-PadA6)" "RE_1" "RE_2" "RE_SW"
+    "SP3T_1" "SP3T_2" "SP3T_3" "unconnected-(XA1-PadAREF)" "unconnected-(XA1-Pad3V3)" "unconnected-(XA1-PadD8)" "unconnected-(XA1-PadD7)" "unconnected-(XA1-PadD13)"
+    "unconnected-(XA1-PadRST1)" "unconnected-(XA1-PadD0)" "unconnected-(XA1-PadD1)" "LED_R_CTRL" "LED_G_CTRL" "LED_B_CTRL" "LED_W_CTRL" "Net-(Q1-Pad2)"
+    "Net-(Q2-Pad2)" "Net-(Q3-Pad2)" "Net-(Q4-Pad2)" "unconnected-(XA1-PadD12)" "unconnected-(XA1-PadD11)" "unconnected-(XA1-PadD4)" "unconnected-(XA1-PadD10)" "unconnected-(XA1-PadD9)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "LED_Current"
+    +12V "/R_Current" "/G_Current" "/B_Current" "/W_Current"
+    (clearance_class "LED_Current")
+    (via_rule LED_Current)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
