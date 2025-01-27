@@ -8,8 +8,8 @@
 
 
 //please enter your sensitive data in the Secret tab
-char ssid[] = "ATTPQRIMAJ";                // your network SSID (name)
-char pass[] = "T849rna%d#66";                // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "Eshu";                // your network SSID (name)
+char pass[] = "---";                // your network password (use for WPA, or use as key for WEP)
 int status = WL_IDLE_STATUS;             // the Wi-Fi radio's status
 int ledState = LOW;                       //ledState used to set the LED
 unsigned long previousMillisInfo = 0;     //will store last time Wi-Fi information was updated
@@ -17,7 +17,7 @@ unsigned long previousMillisLED = 0;      // will store the last time LED was up
 const int intervalInfo = 5000;            // interval at which to update the board information
 
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "pool.ntp.org", -3600*8);
+NTPClient timeClient(ntpUDP, "pool.ntp.org", -3600*7);
 
 
 // LED Port Setup
@@ -36,7 +36,7 @@ const long LengthOfDay =  86400L;
 const int numValues = 4;
 double xValues[4] = {   65*360,  7*3600,  75*360, 8*3600};
 // test values
-// double xValues[4] = {   188*360,  189*360,  189*360, 19*3600};
+// double xValues[4] = {   229*360, 23*3600, 235*360, 24*3600};
 double rValues[4] = {0, 255, 255, 0};
 double gValues[4] = {0, 0, 255, 0};
 double bValues[4] = {0, 0, 255, 0};
@@ -91,7 +91,7 @@ void loop() {
   timeClient.update();
   // setTime(timeClient.getEpochTime());
   TimeOfDay = timeClient.getEpochTime() % LengthOfDay;
-  Serial.println(timeClient.getFormattedTime());
+  // Serial.println(timeClient.getFormattedTime());
   // Serial.println(TimeOfDay);
   // Serial.println(myTZ.dateTime());
   // Serial.println(year());
